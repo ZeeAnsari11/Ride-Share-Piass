@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './signup.scss'
+
 import {
-  Card,
-  Typography,
+  message as AntMessage,
   Button,
+  Card,
   Form,
   Input,
-  message as AntMessage,
+  Typography,
 } from 'antd';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { signup } from '../../redux/slices/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
@@ -31,7 +33,7 @@ const Register = () => {
     <>
       <div className='parent'>
         <Card className='form-card'>
-          <Typography.Title style={{ color: 'var(--theme-color)' }}>Register</Typography.Title>
+          <Typography.Title style={{ color: '#1677ff' }}>Register</Typography.Title>
           <Form name="signup" layout='vertical' onFinish={postData}>
             <Form.Item
               label="Full Name"

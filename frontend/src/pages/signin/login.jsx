@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import "./login.scss"
+
 import {
-    Card,
-    Typography,
+    message as AntMessage,
     Button,
+    Card,
     Form,
     Input,
-    message as AntMessage,
+    Typography,
 } from 'antd'
+import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import { login } from '../../redux/slices/userSlice';
-import "./login.scss"
+
 import localStorageManager from '../../utils/localStorageManager';
+import { login } from '../../redux/slices/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -40,7 +42,7 @@ const Login = () => {
         <>
             <div className='parent'>
                 <Card className='form-card'>
-                    <Typography.Title style={{ color: 'var(--theme-color)' }}>Login</Typography.Title>
+                    <Typography.Title style={{ color: '#1677ff' }}>Login</Typography.Title>
                     <Form name="signup" layout='vertical' onFinish={handleSubmit} >
                         <Form.Item
                             label="Email"
@@ -76,9 +78,11 @@ const Login = () => {
 
                         <Form.Item
                         >
-                            <Button type="primary" shape='round' htmlType="submit" style={{ width: '100%' }} loading={loading}>
+                            <div style={{width:'50%', height:'2rem'}}>
+                            <Button type="primary" shape='round' htmlType="submit" style={{ width: '100%', height:'100%', borderRadius: '' }} loading={loading}>
                                 Submit
                             </Button>
+                            </div>
                             <Button danger type='link' style={{ marginTop: '15px' }} onClick={() => navigate("/signup")}>
                                 Don't have an account! Register
                             </Button>

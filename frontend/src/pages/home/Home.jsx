@@ -48,11 +48,11 @@ const Home = () => {
       <div className={styles.main}>
         <div className={styles.bannerimg}>
           <Image src={banner2} width={"100%"} preview={false} className={styles.bannerimg} />
-          <Button type="primary" size="large" style={{ backgroundColor: "white", color: "black" }} shape="default" className={styles.butonRide} onClick={() => setModalOpen(true)}>Book Your Ride</Button>
+          <Button type="primary" size="large" className={`btn-bordered`} shape="default" onClick={() => setModalOpen(true)}>Book Your Ride</Button>
         </div>
       </div>
 
-      <div>
+      <div className='flex'>
         {
           data.map((ride) => {
             // Missing return statement in the map callback

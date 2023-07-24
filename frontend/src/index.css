@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root{
+  --theme-color: #ff4d4f;
+}
+
+.flex {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+.btn-bordered {
+  padding: 2rem 3rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 400;
+  font-size: x-large;
+  position: absolute;
+  top: 25rem;
+  left: 3.5rem;
+  border-radius: 15px;
+}
+.btn-bordered:hover {
+  background-color: white;
+  color: blue
+}
+label {
+  font-size: medium !important;
+}
+input {
+  padding: 10px !important;
+}
+.ant-modal-wrap {
+  max-height: 100%;
+}

@@ -46,7 +46,7 @@ const PostRide = () => {
     <>
       <div className='parent1'>
         <Card className='form-card'>
-          <Typography.Title style={{ color: 'var(--theme-color)' }}>Post Ride</Typography.Title>
+          <Typography.Title style={{ color: '#1677ff' }}>Post Ride</Typography.Title>
           <Form name="signup" layout='vertical' onFinish={postData}>
             <Form.Item
               label="Ride Type"

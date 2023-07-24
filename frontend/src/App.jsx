@@ -1,10 +1,10 @@
 import { useEffect, useLayoutEffect } from 'react'
-import { useDispatch } from 'react-redux';
+
 import Router from './Router/Router'
-import localStorageManager from './utils/localStorageManager';
-import { userSignIn } from './redux/slices/userSlice';
-import './App.css'
 import axios from 'axios';
+import localStorageManager from './utils/localStorageManager';
+import { useDispatch } from 'react-redux';
+import { userSignIn } from './redux/slices/userSlice';
 function App() {
 
   const dispatch = useDispatch();
