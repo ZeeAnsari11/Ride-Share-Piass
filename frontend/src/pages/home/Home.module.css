@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+}
+
+.bannerimg {
+  position: relative;
+  border-radius: 30px;
+}
+.butonRide{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}

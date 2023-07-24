@@ -1,0 +1,19 @@
+.Error_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.content1 {
+    font-size: 100px;
+    font-weight: bold;
+    color: rgb(71, 71, 255);
+    font-style: inherit;
+}
+
+.content2 {
+    font-size: 35px;
+    padding: 10px;
+}
