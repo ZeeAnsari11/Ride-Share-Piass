@@ -19,7 +19,7 @@ console.log("=================", process.env.MONGO_URL);
   .then(() => {
       console.log("Connection Established with database.");
   })
-  .catch((e) => console.log('Database connection Failed!'))
+  .catch((e) => console.log('Database connection Failed!',e))
 
 
   

@@ -33,10 +33,14 @@
   border-radius: 20px;
 }
 .Avatar_content ul li a:hover{
-  background-color: #ff4d5011;
-  color: var(--theme-color);
+  background-color: rgb(7, 7, 105);
+  color: whitesmoke;
 }
 .Login_avatar{
-  margin-bottom: 5px;
+  margin-top: 6px;
   cursor: pointer;
+}
+.seperate{
+  height: 1px;
+  background-color: rgb(226, 220, 220);
 }

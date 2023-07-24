@@ -42,7 +42,7 @@ const Navbar = () => {
   )
   return (
     <>
-      <Layout style={{ backgroundColor: colorBgContainer }} >
+      <Layout style={{ backgroundColor: colorBgContainer,height:"90px" }}  >
         <Header className={styles.Header} style={{ backgroundColor: colorBgContainer }}>
           <div className={styles.logo}>RideShare</div>
           <Menu
@@ -73,6 +73,7 @@ const Navbar = () => {
           </div>
         </Header>
       </Layout>
+      <div className={styles.seperate}></div>
     </>
   )
 }
