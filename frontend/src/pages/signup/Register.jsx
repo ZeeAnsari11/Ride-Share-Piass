@@ -8,13 +8,13 @@ import {
   Input,
   Typography,
 } from 'antd';
-import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import React from 'react';
 import { signup } from '../../redux/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Register = () => {
+const Register = ({displayImage=true}) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,8 +31,8 @@ const Register = () => {
   }
   return (
     <>
-      <div className='parent'>
-        <Card className='form-card'>
+      <div className='flex justify-evenly items-center py-8'>
+        <Card className={`border-0 ${displayImage ? 'w-1/2' : 'w-full'}`}>
           <Typography.Title style={{ color: '#1677ff' }}>Register</Typography.Title>
           <Form name="signup" layout='vertical' onFinish={postData}>
             <Form.Item
@@ -93,17 +93,16 @@ const Register = () => {
 
             <Form.Item
             >
-              <Button type="primary" shape='round' htmlType="submit" style={{ width: '100%' }} loading={loading}>
-                Submit
-              </Button>
-              <Button type='link' danger style={{ marginTop: '15px' }} onClick={() => navigate("/signin")}>
-                Already have account! Login
-              </Button>
+              <button className="hover:bg-transparent bg-blue-500 hover:text-blue-700 font-semibold text-white py-2 px-4 border border-blue-500 rounded" loading={loading}>
+                Sign Up
+              </button>
+              <div className="space-x-2 py-4" >
+                  Alrady have an account! <span onClick={() => navigate("/signin")} className="text-red-500 transition-all cursor-pointer hover:text-red-400 ">Login</span>
+              </div>
             </Form.Item>
           </Form>
         </Card>
-
-
+        {displayImage && <img className="w-[30%]" src={'https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000'} alt="login sample" />}
       </div>
     </>
   )

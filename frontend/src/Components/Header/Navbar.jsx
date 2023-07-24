@@ -1,10 +1,12 @@
-import React from 'react'
-import { Menu, Layout, theme, Button, Popover, Avatar } from "antd";
+import { Avatar, Button, Layout, Menu, Popover, theme } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import React from 'react'
 import Routes from '../../Constants';
 import styles from "./Header.module.css"
 import { userSignOut } from '../../redux/slices/userSlice';
+
 const Navbar = () => {
   const user = useSelector(state => state.user.user);
   const dispatch = useDispatch();
@@ -43,8 +45,8 @@ const Navbar = () => {
   return (
     <>
       <Layout style={{ backgroundColor: colorBgContainer,height:"90px" }}  >
-        <Header className={styles.Header} style={{ backgroundColor: colorBgContainer }}>
-          <div className={styles.logo}>RideShare</div>
+        <Header className="flex h-full" style={{ backgroundColor: colorBgContainer }}>
+          <div className="flex justify-center items-center font-bold text-2xl">RideShare</div>
           <Menu
             onClick={handleMenuClick}
             className={styles.menu}
@@ -54,14 +56,14 @@ const Navbar = () => {
           <div className={styles.login}>
             {
               !user ?
-                <>
-                  <Button type="primary" size='middle' shape='round' onClick={() => navigate("./signin")}>
+                <div className="flex h-full justify-between items-center">
+                  <button className="bg-transparent py-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 border border-blue-500 hover:border-transparent rounded-full" onClick={() => navigate("./signin")}>
                     Login
-                  </Button>
-                  <Button type="primary" size='middle' shape='round' onClick={() => navigate("./signup")}>
+                  </button>
+                  <button className="bg-transparent py-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 border border-blue-500 hover:border-transparent rounded-full" onClick={() => navigate("./signup")}>
                     Sign up
-                  </Button>
-                </> :
+                  </button>
+                </div> :
                 <>
                   <Popover placement="bottomRight" content={Content} className={styles.Login_avatar} overlayStyle={{ width: "220px", padding: "0px" }}>
                     <Avatar size={50}>
