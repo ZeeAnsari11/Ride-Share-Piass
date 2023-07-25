@@ -6,6 +6,7 @@ const notFound = require("./middlewares/notfound");
 const router = require("./routes/router");
 const errorHandler = require("./controller/error/error");
 const PostsRouter = require("./controller/posts");
+const initializeSockets = require("./sockets/index")
 const morgan = require("morgan");
 
 
@@ -26,5 +27,5 @@ app.use(notFound);
 app.use("/api/v1/", PostsRouter)
 
 
-
-app.listen(PORT, ()=>console.log(`Server is started at http://localhost:${PORT}`));
+const expressInstance = app.listen(PORT, ()=>console.log(`Server is started at http://localhost:${PORT}`));
+initializeSockets(expressInstance);

@@ -5,6 +5,7 @@ import axios from 'axios';
 import localStorageManager from './utils/localStorageManager';
 import { useDispatch } from 'react-redux';
 import { userSignIn } from './redux/slices/userSlice';
+import Sockets from "./sockets/index"
 function App() {
 
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <>
+      <Sockets />
       <Router />
     </>
   )

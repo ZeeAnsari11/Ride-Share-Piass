@@ -1,20 +1,18 @@
 import { Avatar, Button, Layout, Menu, Popover, theme } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import React from 'react'
 import Routes from '../../Constants';
 import styles from "./Header.module.css"
 import { userSignOut } from '../../redux/slices/userSlice';
-
 const Navbar = () => {
   const user = useSelector(state => state.user.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
+    navigate("/signin", {});
     localStorage.clear();
     dispatch(userSignOut({}));
-
   }
   const {
     token: { colorBgContainer },

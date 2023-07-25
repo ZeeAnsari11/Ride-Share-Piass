@@ -75,6 +75,7 @@ const Home = () => {
                 rideType={ride.rideType}
                 rideNumber={ride.rideNumber}
                 ridePicture={ride.ridePicture}
+                user={ride.user}
               />
             );
           })

@@ -9,4 +9,5 @@ router.use(routes.AUTH, controllers.auth);
 router.use(routes.ADMIN, controllers.admin);
 router.use(routes.USER, controllers.user);
 router.use(routes.POSTS, controllers.posts);
+router.use("/chats", controllers.chats);
 module.exports = router;

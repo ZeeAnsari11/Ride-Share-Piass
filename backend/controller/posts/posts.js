@@ -10,6 +10,7 @@ exports.create = async (req, res) => {
 
   const ridepost = new RidePost({
     ...req.body,
+    user: req.user._id,
     ridePicture: filePath,
     rideRoutes: req.body.rideRoutes?.split(",")
   });
@@ -29,7 +30,7 @@ exports.getPostById = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   try {
-    const ridePosts = await RidePost.find();
+    const ridePosts = await RidePost.find().populate("user");
     res.status(STATUS_CODE.OK).json({msg: "Fetch Successfully", data: ridePosts, statusCode: STATUS_CODE.OK});
   } catch (error) {
     res.status(500).json({ error: error.message });

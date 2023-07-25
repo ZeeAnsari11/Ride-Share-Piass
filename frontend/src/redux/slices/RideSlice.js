@@ -9,9 +9,9 @@ const postRide = createAsyncThunk("postRide", async (data) => {
         return { error: error }
     }
 })
-const getRide = createAsyncThunk("getRide", async (data) => {
+const getRide = createAsyncThunk("getRide", async () => {
     try {
-        let res = await axios.get(`${serverEndpoint}posts/all`, data)
+        let res = await axios.get(`${serverEndpoint}posts/all`)
         return res.data;
     } catch (error) {
         return { error: error }

@@ -5,6 +5,7 @@ import signup from "./signup/Register";
 import signin from "./signin/login";
 import PostRide from "./postRide/PostRide";
 import Error from "./Error/Error"
+import Chat from "./chat/Chat"
 const Pages={
     home,
     About,
@@ -13,6 +14,7 @@ const Pages={
     signin,
     PostRide,
     Error,
+    Chat,
     
 }
 export default Pages;
