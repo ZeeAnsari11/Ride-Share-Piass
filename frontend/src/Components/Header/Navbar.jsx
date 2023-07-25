@@ -10,9 +10,9 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
-    navigate("/signin", {});
     localStorage.clear();
     dispatch(userSignOut({}));
+    navigate("/signin");
   }
   const {
     token: { colorBgContainer },
@@ -35,8 +35,9 @@ const Navbar = () => {
         <li> <Link to="/">Home</Link> </li>
         <li> <Link to="">Profile </Link> </li>
         <li> <Link to="/PostRide">Post Ride </Link> </li>
+        <li> <Link to="/chat">Chat </Link> </li>
         <li> <Link to="">Change Password </Link> </li>
-        <li> <Link to="#" onClick={handleLogout}>Log out </Link> </li>
+        <li> <Link to="/signin" onClick={handleLogout}>Log out </Link> </li>
       </ul>
     </div>
   )

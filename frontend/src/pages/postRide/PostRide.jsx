@@ -13,10 +13,12 @@ import React, { useState } from 'react';
 
 import { postRide } from '../../redux/slices/RideSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 const PostRide = () => {
   
   const [file, setFile] = useState(null);
+  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   const postData = (data) => {
@@ -41,6 +43,7 @@ const PostRide = () => {
       }
     })
     dispatch(postRide(formData));
+    navigate("/")
   }
   return (
     <>

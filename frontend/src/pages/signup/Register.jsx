@@ -28,6 +28,7 @@ const Register = ({displayImage=true}) => {
     .then(data=>{
         AntMessage.info(data.msg)
     })
+    navigate("/signin")
   }
   return (
     <>
