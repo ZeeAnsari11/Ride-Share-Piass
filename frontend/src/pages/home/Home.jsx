@@ -32,6 +32,7 @@ const Home = () => {
       children: <Register displayImage={false}/>,
     },
   ];
+  const [inputStr, setInputStr] = useState('');
   return (
     <>
       <Modal
@@ -50,7 +51,7 @@ const Home = () => {
           <form className="w-1/2 mx-auto shadow flex justify-center items-center">   
               <label for="simple-search" className="sr-only">Search</label>
               <div className="relative w-full">
-                  <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Search Rides..." required/>
+                  <input value={inputStr} type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Search Rides..." required onChange={(e) => setInputStr(e.target.value)}/>
               </div>
               <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                   <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -65,17 +66,20 @@ const Home = () => {
       <div className='flex'>
         {
           data.map((ride) => {
+            if (ride.startLocation.toLowerCase().includes(inputStr.toLowerCase()) || ride.endLocation.toLowerCase().includes(inputStr.toLowerCase()) )
             // Missing return statement in the map callback
             return (
               // eslint-disable-next-line react/jsx-key
-              <Card
-                startLocation={ride.startLocation} // Assuming you have defined these variables somewhere
-                endLocation={ride.endLocation}
-                rideRoutes={ride.rideRoutes}
-                rideType={ride.rideType}
-                rideNumber={ride.rideNumber}
-                ridePicture={ride.ridePicture}
-              />
+              <>
+                <Card
+                  startLocation={ride.startLocation} // Assuming you have defined these variables somewhere
+                  endLocation={ride.endLocation}
+                  rideRoutes={ride.rideRoutes}
+                  rideType={ride.rideType}
+                  rideNumber={ride.rideNumber}
+                  ridePicture={ride.ridePicture}
+                />
+              </>
             );
           })
         }
