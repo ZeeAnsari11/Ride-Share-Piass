@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const Cards = ({ startLocation, endLocation, rideRoutes, rideType, rideNumber, ridePicture, user }) => {
   const { Meta } = Card;
   const navigate = useNavigate();
-
   const handleCreateChat = async ()=>{
     if(user && user.id){
      let res =  await ChatAPI.createConservation(user.id, user.fullName);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowLeft as ArrowBack } from "react-icons/bs";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import ChatAPI from "../../services/chat";
 import localStorageManager from "../../utils/localStorageManager";
 import MessageContainer from "./components/MessageContainer";
@@ -10,9 +10,9 @@ const Chat = ({ MessageRecieved }) => {
   const [currentChat, setCurrentChat] = useState();
   const [conversations, setConversations] = useState([]);
   const [showChat, setShowChat] = useState(false);
+  const user = useSelector(state=> state.user.user)
 
   const getConservations = async () => {
-    const user = await localStorageManager.UserInfo;
     await ChatAPI.getConservations(user?.id).then((res) => {
       if (res && res.statusCode === 200) {
         setConversations(res.data);
@@ -22,7 +22,12 @@ const Chat = ({ MessageRecieved }) => {
 
   useEffect(() => {
     getConservations();
-  }, [MessageRecieved]);
+  }, [MessageRecieved, user]);
+
+
+  const getChatName = (data)=>{
+    return data?.members[0]?.id === user?.id ? data?.members[1]?.fullName : data?.members[0]?.fullName
+  }
 
   const ChatHead = ({ data }) => {
     return (
@@ -41,7 +46,7 @@ const Chat = ({ MessageRecieved }) => {
             paddingRight: "60px",
             whiteSpace: "nowrap"
           }}>
-          {data.members?.[0]?.fullName}
+          {getChatName(data)}
         </p>
         <small
           style={{
@@ -74,7 +79,7 @@ const Chat = ({ MessageRecieved }) => {
         <p>
           <ArrowBack className="pointer chat-back-btn" onClick={() => setShowChat(false)} />
           &nbsp;
-          {currentChat?.members?.[0]?.fullName}
+          {getChatName(currentChat)}
         </p>
       </div>
     );
@@ -84,7 +89,6 @@ const Chat = ({ MessageRecieved }) => {
     setCurrentChat(data);
     setShowChat(true);
   };
-console.log(conversations)
 
   return (
     <div className="page-container" style={{ overflowY: "hidden", padding: "0px" }}>
