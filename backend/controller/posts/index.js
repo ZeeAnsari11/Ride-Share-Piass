@@ -6,6 +6,7 @@ const catchAsync = require("../../utils/CatchAsync");
 const multer = require("../../utils/multer");
 
 PostsRouter.get("/all", catchAsync(posts.getAll));
+PostsRouter.get("/search", catchAsync(posts.search));
 PostsRouter.get("/:id", catchAsync(posts.getPostById));
 PostsRouter.delete("/:id", catchAsync(posts.deleteById));
 PostsRouter.put("/:id",catchAsync(posts.updateById));

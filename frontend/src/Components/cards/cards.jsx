@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import ChatAPI from '../../services/chat';
 import { useNavigate } from 'react-router-dom';
-import { Modal } from 'antd';
+import { Modal, Card } from 'antd';
 import React, { useState } from 'react';
 
 

@@ -87,6 +87,21 @@ const PostRide = () => {
               />
             </Form.Item>
             <Form.Item
+              name="date"
+              label="Dispatch Date"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Dispatch Date Here!',
+                },
+              ]}
+            >
+              <Input
+                type='date'
+                size="large"
+              />
+            </Form.Item>
+            <Form.Item
               name="rideColor"
               label="Ride Color"
               rules={[

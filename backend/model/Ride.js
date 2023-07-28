@@ -19,6 +19,7 @@ const ridepostSchema = new mongoose.Schema({
   ridePicture: { type: String, required: true },
   startLocation: { type: String, required: true },
   endLocation: { type: String, required: true },
+  date: { type: Date, required: true },
   rideRoutes: {
     type: Array,
     required: true,

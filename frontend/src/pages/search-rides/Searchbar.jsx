@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 // MUI | ANT-D :
-import { Dropdown, Input, Form } from 'antd'
+import { Dropdown, Input, Form, Select, Row, Col } from 'antd'
 // ICONS
 import { BiFilterAlt as FilterAltOutlinedIcon } from "react-icons/bi"
 import { BsSearch as SearchIcon, BsFilter as FilterListOutlinedIcon } from "react-icons/bs"
@@ -133,20 +133,33 @@ function Searchbar({ searchTeams }) {
                 </div>
                 {
                     viewFilters &&
-                    <div className='filters-container'>
-                        <div className="filter-item">
-                            <div className="icon">
-                                <p> Filter by </p>
-                            </div>
-                        </div>
-                        <div className="filter-item">
-                            <div className="body">
-                                <Form.Item name="price" label="Price">
-                                    <Input type='number' min="1" placeholder='Enter Max Price' size='large' />
-                                </Form.Item>
-                            </div>
-                        </div>
-                    </div>
+                    <Row gutter={20} style={{marginTop: "30px"}}>
+                        <Col xs={24} sm={12} md={12} lg={6}>
+                            <Form.Item name="price" label="Price Range">
+                                <Input type='number' min="1" placeholder='Enter Max Price' size='large' />
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24} sm={12} md={12} lg={6}>
+                            <Form.Item name="date" label="Date">
+                                <Input type='date' min="1" size='large' />
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24} sm={12} md={12} lg={6}>
+                            <Form.Item name="location" label="Location">
+                                <Input type='text' min="1" size='large' />
+                            </Form.Item>
+                        </Col>
+                        <Col xs={24} sm={12} md={12} lg={6}>
+                            <Form.Item name="rideType" label="Ride Type">
+                                <Select
+                                    size='large'
+                                >
+                                    <Select.Option name="car"> Car </Select.Option>
+                                    <Select.Option name="bike"> Bike </Select.Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+                    </Row>
                 }
             </Form>
         </div>

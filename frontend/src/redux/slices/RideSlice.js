@@ -22,8 +22,9 @@ const searchRides = createAsyncThunk("searchRides", async (parameters) => {
     try {
         let queryStringArray = Object.keys(parameters).map(el => {
             if (el === "sort") {
-                retur`sort=${JSON.stringify(parameters[el]) || ""}`
+                return `sort=${JSON.stringify(parameters[el]) || ""}`
             }
+            console.log("eeeee ===>", el)
             return `${el}=${parameters[el] || ""}`
         })
         let res = await axios.get(`${serverEndpoint}posts/search?${queryStringArray.join("&")}`)
@@ -81,7 +82,8 @@ export const RideSlice = createSlice({
                 return
             }
             state.message = "Success";
-            state.searchResult = action.payload.data;
+            console.log(action.payload)
+            state.searchResults = action.payload.data;
             return
         })
     }

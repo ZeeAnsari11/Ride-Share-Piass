@@ -141,38 +141,4 @@
             }
         }
     }
-
-    .filters-container {
-        display: flex;
-        align-items: center;
-        color: #b3b3b3;
-
-        @media screen and (max-width: 1100px) {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .filter-item {
-            flex-grow: 1;
-            padding-block: 30px;
-            padding-inline: 20px;
-
-            @media screen and (max-width: 1100px) {
-                padding-block: 10px;
-            }
-
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            min-width: 326px;
-
-            .ant-select {
-                min-width: 205px;
-            }
-
-            .icon {
-                margin-right: 20px;
-            }
-        }
-    }
 }

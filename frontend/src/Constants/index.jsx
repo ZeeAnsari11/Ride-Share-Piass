@@ -19,6 +19,11 @@ const Routes= {
         name: "MyRids ",
         path: "/myrides",
     },
+    "5": {  
+        key: "5",
+        name: "Search Rides",
+        path: "/search-rides",
+    },
  
 };
 export default Routes;  
