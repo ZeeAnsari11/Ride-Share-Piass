@@ -1,0 +1,178 @@
+.search-bar-wrapper {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+
+    .search-bar-container {
+        border-radius: 5px;
+        border: 1px solid #eee;
+        display: flex;
+        transition: all 0.3s ease-in-out;
+
+        @media screen and (max-width: 1100px) {
+            flex-direction: column;
+        }
+
+        .search-bar-item {
+            flex-grow: 1;
+            min-width: 326px;
+            border-right: 1px solid #eee;
+            padding: 5px 20px;
+            color: #b3b3b3;
+            display: flex;
+
+            &:first-child {
+                color: black;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+
+            @media screen and (max-width: 1100px) {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            .icon {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                margin-right: 10px;
+
+                button {
+                    background-color: var(--theme-color);
+                    padding: 20px;
+                    border: none;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            .body {
+                flex-grow: 1;
+
+                .content {
+                    position: relative;
+                    padding-top: 10px;
+                    cursor: pointer;
+
+                    .search {
+                        input {
+                            padding: 0;
+                            font-weight: 600;
+                            border: none;
+
+                            &:focus {
+                                box-shadow: none !important;
+                            }
+                        }
+                    }
+
+                    .ant-input-group-addon {
+                        display: none !important;
+                        background-color: #1677ff !important;
+                    }
+
+                    .sort-selector {
+                        display: flex;
+                        color: #2e6edf;
+
+                        .selected-item {
+                            background-color: #4160f50d;
+                            border-radius: 50px;
+                            margin-right: 5px;
+                            padding: 5px 10px;
+                            font-weight: 500;
+                            width: 130px;
+                            text-align: center;
+                        }
+
+                        .dropdown-arrow {
+                            padding: 5px;
+                            border-radius: 50px;
+                            background-color: #4160f50d;
+                        }
+                    }
+
+                    .filter-selector {
+                        display: flex;
+                        color: #42b549;
+
+                        .filter-item {
+                            background-color: #2dd6b80d;
+                            border-radius: 50px;
+                            margin-right: 5px;
+                            padding: 5px 10px;
+                            font-weight: 500;
+                            text-align: center;
+
+                            &-close {
+                                color: #ff4757;
+                                background-color: #92141808;
+                                border-radius: 50px;
+                                margin-right: 5px;
+                                padding: 5px 10px;
+                                font-weight: 500;
+                                text-align: center;
+                            }
+                        }
+
+                        .filter-arrow {
+                            padding: 5px;
+                            border-radius: 50px;
+                            background-color: #2dd6b80d;
+
+                            &-close {
+                                color: #ff4757;
+                                padding: 5px;
+                                border-radius: 50px;
+                                background-color: #92141808;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .filters-container {
+        display: flex;
+        align-items: center;
+        color: #b3b3b3;
+
+        @media screen and (max-width: 1100px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .filter-item {
+            flex-grow: 1;
+            padding-block: 30px;
+            padding-inline: 20px;
+
+            @media screen and (max-width: 1100px) {
+                padding-block: 10px;
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-width: 326px;
+
+            .ant-select {
+                min-width: 205px;
+            }
+
+            .icon {
+                margin-right: 20px;
+            }
+        }
+    }
+}
