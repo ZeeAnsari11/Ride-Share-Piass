@@ -17,6 +17,7 @@ const Router = () => {
                 <Route path='/signin' element={<Pages.signin />} />
                 <Route path='/postRide' element={<Pages.PostRide/>} />
                 <Route path='/chat' element={<Pages.Chat/>} />
+                <Route path='/myrides' element={<Pages.Rides/>} />
                 <Route path='*' element={< Pages.Error/>}/>
             </Routes>
             {

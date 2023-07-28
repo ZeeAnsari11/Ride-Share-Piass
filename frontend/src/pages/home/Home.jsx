@@ -63,7 +63,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='flex'>
+      <div className={styles.Card}>
         {
           data.map((ride) => {
             if (ride.startLocation.toLowerCase().includes(inputStr.toLowerCase()) || ride.endLocation.toLowerCase().includes(inputStr.toLowerCase()) )

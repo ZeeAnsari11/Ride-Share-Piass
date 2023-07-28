@@ -14,6 +14,11 @@ const Routes= {
         name: "About ",
         path: "/about",
     },
+    "4": {  
+        key: "4",
+        name: "MyRids ",
+        path: "/myrides",
+    },
  
 };
 export default Routes;  
