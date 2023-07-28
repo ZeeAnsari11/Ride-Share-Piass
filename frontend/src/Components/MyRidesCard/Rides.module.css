@@ -1,0 +1,27 @@
+.Header{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.Card_style{
+    cursor: pointer;
+    border-radius: 5%;
+    height: 100%;
+}
+.image{
+    height: 100%;
+    width: 100%;
+    border-radius: 5%;
+}
+.text{
+    text-align: left;
+    background-color: transparent;
+    margin-top: 10px;
+    font-size: 15px;
+}
+.Spiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}

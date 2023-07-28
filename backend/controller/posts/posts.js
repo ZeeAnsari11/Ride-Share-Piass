@@ -49,6 +49,20 @@ exports.updateById = async (req, res) => {
   }
 };
 
+
+exports.myPosts = async (req, res) => {
+  try {
+    // const { id } = req.params.id;
+    let myPosts = await RidePost.find({user: req.params.id});
+   res.status(200).json({
+    success: true,
+    data : myPosts
+   })
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 exports.deleteById = async (req, res) => {
   try {
     console.log("=============11====7878878======", );

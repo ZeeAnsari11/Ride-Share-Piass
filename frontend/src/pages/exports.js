@@ -7,6 +7,7 @@ import PostRide from "./postRide/PostRide";
 import Error from "./Error/Error"
 import Chat from "./chat/Chat"
 import SearchRides from "./search-rides/SearchRides"
+import Rides from "./myrides/rides";
 const Pages={
     home,
     About,
@@ -17,6 +18,7 @@ const Pages={
     Error,
     Chat,
     SearchRides,
+    Rides,
     
 }
 export default Pages;
