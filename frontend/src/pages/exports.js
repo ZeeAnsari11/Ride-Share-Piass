@@ -8,7 +8,11 @@ import Error from "./Error/Error"
 import Chat from "./chat/Chat"
 import SearchRides from "./search-rides/SearchRides"
 import Rides from "./myrides/rides";
+import ForgotPassword from "./forgot/ForgotPassoword";
+import NewPassword from "./new-password/NewPassword";
 const Pages={
+    NewPassword,
+    ForgotPassword,
     home,
     About,
     Contact,

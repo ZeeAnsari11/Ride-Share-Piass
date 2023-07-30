@@ -65,6 +65,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    forgotPasswordToken: {
+        type: String,
+        select: false,
+    },
+    forgotPasswordTokenExpires: {
+        type: Date,
+        select: false,
+    },
     token: {
         type: String,
     },
@@ -124,6 +132,26 @@ userSchema.methods.createPhoneVerifyToken = async function () {
       .update(token)
       .digest("hex");
     this.phoneVerificationTokenExpires = Date.now() + 10 * 60 * 1000;
+    return token;
+};
+
+userSchema.methods.createForgotPasswordToken = async function () {
+    let token;
+    do {
+        token = Math.floor(100000 + Math.random() * 900000).toString();
+    } while (
+        await userModel.findOne({
+            forgotPasswordToken: crypto
+                .createHash("sha256")
+                .update(token)
+                .digest("hex"),
+        })
+    );
+    this.forgotPasswordToken = crypto
+        .createHash("sha256")
+        .update(token)
+        .digest("hex");
+    this.forgotPasswordTokenExpires = Date.now() + 10 * 60 * 1000;
     return token;
 };
 
