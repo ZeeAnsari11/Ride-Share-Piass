@@ -1,0 +1,31 @@
+.profile-section{
+    .ant-upload-select{
+        width: 90% !important;
+        margin: 0px !important;
+    }
+}
+
+.image-container {
+    border-color: grey;
+    border-width: 1px;
+    border-style: dashed;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    user-select: none;
+}
+.image-container:hover{
+    background-color: darkgray;
+    color: white;
+}
+
+.image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: black;
+}

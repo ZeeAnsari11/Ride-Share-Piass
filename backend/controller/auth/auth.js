@@ -163,24 +163,24 @@ exports.sendForgotPasswordCode = async (req, res) => {
 
 exports.resetPassword = async (req, res) => {
     let token = req.body.token;
-    let password = req.body.token;
+    let password = req.body.password;
     if (token) {
         token = crypto
             .createHash("sha256")
             .update(token)
             .digest("hex");
         const hashPassword = bycrypt.hashPassword(password);
-        console.log("Passoword =====>", hashPassword)
         const nowDate = Date.now();
+        let userData = {
+            password: hashPassword,
+            forgotPasswordTokenExpires: nowDate,
+        }
         if (hashPassword) {
             const data = await userModel.updateOne({
                 forgotPasswordToken: token,
                 forgotPasswordTokenExpires: { $gte: nowDate }
             }, {
-                $set: {
-                    password: hashPassword,
-                    forgotPasswordTokenExpires: nowDate,
-                }
+                $set: userData,
             });
             if (data.modifiedCount) {
                 res.status(STATUS_CODE.OK).json({ msg: `Password changed successfully`, statusCode: STATUS_CODE.OK });

@@ -10,7 +10,11 @@ import SearchRides from "./search-rides/SearchRides"
 import Rides from "./myrides/rides";
 import ForgotPassword from "./forgot/ForgotPassoword";
 import NewPassword from "./new-password/NewPassword";
+import ProfileRequest from "./profile-request/ProfileRequest";
+import RequestStatus from "./profile-request/RequestStatus";
 const Pages={
+    RequestStatus,
+    ProfileRequest,
     NewPassword,
     ForgotPassword,
     home,

@@ -7,6 +7,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Full name is required"],
     },
+    cnicFront: {
+        type: String,
+    },
+    cnicBack: {
+        type: String,
+    },
+    image: {
+        type: String,
+    },
     email: {
         type: String,
         unique: true,
@@ -36,6 +45,22 @@ const userSchema = new mongoose.Schema({
         minlength: [8, "Password minimum length must be 8 characters"],
         required: [true, "Password is required"],
         select: false,
+    },
+    verified: {
+        type: Boolean,
+        default: false,
+    },
+    requestStatus: {
+        type: String,
+        enum: {
+            values: [
+                "pending",
+                "rejected",
+                "accepted",
+            ],
+            message:
+                "Request status must be pending, rejected, accepted",
+        },
     },
     banned: {
         type: Boolean,

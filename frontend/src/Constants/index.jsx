@@ -15,11 +15,6 @@ const Routes= {
         path: "/about",
     },
     "4": {  
-        key: "4",
-        name: "MyRids ",
-        path: "/myrides",
-    },
-    "5": {  
         key: "5",
         name: "Search Rides",
         path: "/search-rides",

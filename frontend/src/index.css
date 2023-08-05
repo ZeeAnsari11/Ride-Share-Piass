@@ -2,25 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-:root{
+:root {
   --theme-color: #ff4d4f;
 }
+
 label {
   font-size: medium !important;
 }
+
 input {
   padding: 10px !important;
 }
+
 .ant-layout-header {
   line-height: normal !important;
 }
+
 .ant-btn-primary {
   background-color: rgb(59, 130, 246);
+}
+
+.ant-menu-horizontal {
+  border-bottom: none !important;
+}
+
+.ant-menu-item {
+  font-size: 18px !important;
+}
+.ant-menu-item:after {
+  border: none !important;
 }

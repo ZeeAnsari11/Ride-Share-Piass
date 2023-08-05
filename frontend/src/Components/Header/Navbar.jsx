@@ -28,12 +28,16 @@ const Navbar = () => {
   const handleMenuClick = ({ key, type }) => {
     let item = Routes[key];
     navigate(item.path);
+  
   };
+
+
   const Content = (
     <div className={styles.Avatar_content}>
       <ul>
         <li> <Link to="/">Home</Link> </li>
         <li> <Link to="">Profile </Link> </li>
+        <li> <Link to="/myrides">My Ride </Link> </li>
         <li> <Link to="/PostRide">Post Ride </Link> </li>
         <li> <Link to="/chat">Chat </Link> </li>
         <li> <Link to="">Change Password </Link> </li>

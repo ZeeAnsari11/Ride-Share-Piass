@@ -96,8 +96,9 @@ const PostRide = () => {
                 },
               ]}
             >
+              {/* <input type="datetime-local" name="" id="" /> */}
               <Input
-                type='date'
+                type="datetime-local"
                 size="large"
               />
             </Form.Item>

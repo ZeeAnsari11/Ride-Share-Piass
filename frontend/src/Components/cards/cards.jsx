@@ -1,33 +1,38 @@
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 import ChatAPI from '../../services/chat';
 import { useNavigate } from 'react-router-dom';
 import { Modal, Card } from 'antd';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 const Cards = ({ startLocation, endLocation, rideRoutes, rideType, rideNumber, ridePicture, user }) => {
   const { Meta } = Card;
   const navigate = useNavigate();
+  const {user: userData} = useSelector(state=> state.user);
+
   const handleCreateChat = async ()=>{
-    if(user && user.id){
+
+    if(userData && userData.id && user && user.id){
      let res =  await ChatAPI.createConservation(user.id, user.fullName);
      if(res.statusCode === 200){
       navigate("chat")
      }
-     console.log(res)
+     return;
     }
+
+    message.error("Please login first")
   }
   
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       <Card
-        onClick={() => setModalOpen(true)}
         hoverable
         style={{
           width: 240,
         }}
-        cover={<img alt="example" src={`http://localhost:4000/public/images/${ridePicture}`} />}
+        cover={<img onClick={() => setModalOpen(true)} alt="example" src={`http://localhost:4000/public/images/${ridePicture}`} />}
       >
         <Meta title={startLocation} description={endLocation} />
         <Button type='primary' onClick={handleCreateChat} > Chat Now</Button>
@@ -49,7 +54,6 @@ const Cards = ({ startLocation, endLocation, rideRoutes, rideType, rideNumber, r
             <p>{startLocation} - {endLocation}</p>
           </div>
         </div>
-
       </Modal>
     </>
   );
