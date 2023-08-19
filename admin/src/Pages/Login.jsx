@@ -9,18 +9,24 @@ import {
   Typography,
 } from "antd";
 import { serverEndpoint } from '../../utils/serverEndpoint';
+import {useNavigate} from "react-router-dom"
 import Styles from "./Login.module.css";
+import localStorageManager from "../../utils/localStorageManager";
 const Login = () => {
+  const navigate = useNavigate()
   const handleSubmit = async (payload) => {
-    let res = await axios.post(`${serverEndpoint}admin/login`, payload);
-    if (data.statusCode === 200) {
-      AntMessage.success("Login Success");
-      localStorageManager.setUser(data.data);
-      navigate("/");
-
-      return;
-    }
-    AntMessage.error(data.msg || "Login Error");
+    await axios.post(`${serverEndpoint}admin/login`, payload)
+    .then(res=>{
+      if (res.data.statusCode === 200) {
+        AntMessage.success("Login Success");
+        localStorageManager.setUser(res.data.data);
+        navigate("/Navbar");
+        return;
+      }
+    })
+    .catch(err=>{
+      AntMessage.error(err?.response?.data?.msg || "Login Error");
+    });
   };
   return (
     <>
