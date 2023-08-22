@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-console.log("=================", process.env.MONGO_URL);
+// console.log("=================", process.env.MONGO_URL);
 
 // mongoose
 //   .connect(process.env.MONGO_URL, {
@@ -15,11 +15,11 @@ console.log("=================", process.env.MONGO_URL);
   mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true 
-  })
-  .then(() => {
-      console.log("Connection Established with database.");
-  })
-  .catch((e) => console.log('Database connection Failed!',e))
-
+    })
+    .then(() => {
+        console.log("Connection Established with database.");
+    })
+    .catch((e) => console.log('Database connection Failed!',e))
+    
 
   

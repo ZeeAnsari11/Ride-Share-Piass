@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         required: [true, "Email is required"],
         validate: [validator.isEmail, "Invalid Email"],
     },
+    isVerified:{
+            type:Boolean,
+            default:false,
+    },
     dateOfBirth: {
         type: Date,
     },

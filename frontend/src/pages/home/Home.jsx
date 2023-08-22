@@ -1,7 +1,7 @@
-import { Button, Image, Modal, Tabs, Typography } from "antd"
+import { Button, Image, Typography } from "antd"
 import { useDispatch, useSelector } from 'react-redux'
 import  { useEffect, useState } from 'react'
-
+import { useNavigate } from "react-router-dom"
 import Card from "../../Components/cards/cards"
 import Login from "../signin/login"
 import Register from "../signup/Register"
@@ -10,44 +10,20 @@ import { getRide } from "../../redux/slices/RideSlice"
 import styles from "./Home.module.css"
 
 const Home = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
   const dispatch = new useDispatch()
   useEffect(() => {
     dispatch(getRide())
   },[])
 
   let data = useSelector(state => state.ride.data)
-  const onChange = (key) => {
-    console.log(key);
-  };
-  const items = [
-    {
-      key: '1',
-      label: `Login`,
-      children: <Login displayImage={false}/>,
-    },
-    {
-      key: '2',
-      label: `Register`,
-      children: <Register displayImage={false}/>,
-    },
-  ];
   const [inputStr, setInputStr] = useState('');
   return (
     <>
-      <Modal
-        centered
-        open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
-      >
-        <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
-
-      </Modal>
       <div className={styles.main}>
         <div className={`${styles.bannerimg} space-y-4`}>
           <Image src={banner2} width={"100%"} preview={false} className={styles.bannerimg} />
-          <button className="absolute left-14 top-[25rem] text-white hover:text-blue-700 bg-transparent hover:bg-white font-semibold py-2 px-4 border border-white-500 hover:border-transparent rounded" onClick={() => setModalOpen(true)}>
+          <button className="absolute left-14 top-[25rem] text-white hover:text-blue-700 bg-transparent hover:bg-white font-semibold py-2 px-4 border border-white-500 hover:border-transparent rounded" onClick={() => navigate("/PostRide")}>
             Book Your Ride
           </button>
         </div>

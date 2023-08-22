@@ -4,7 +4,7 @@ import { Layout, Menu, theme,Image } from 'antd';
 const { Header, Content, Sider } = Layout;
 import Logo from "../../assets/logo1.png"
 import Table from '../Table/Table';
-const Navbar = () => {
+const Admin = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -27,7 +27,7 @@ const Navbar = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['4']}
-          items={[{icon: UserOutlined, name: "Users"}].map(
+          items={[{icon: UserOutlined, name:"Verified"}, {icon: UserOutlined, name:"Non-Verified"}].map(
             (el, index) => ({
               key: el.name,
               icon: React.createElement(el.icon),
@@ -62,4 +62,4 @@ const Navbar = () => {
     </Layout>
   );
 };
-export default Navbar;
+export default Admin;

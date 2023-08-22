@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table as AntTable, Input } from "antd";
-import styles from "./Table.module.css"
+import styles from "./Table.module.css";
+import { serverEndpoint } from "../../../utils/serverEndpoint";
+import axios from "axios";
+import InfoCard from "../InfoCard/InfoCard";
 const dataSource = [
   {
     key: "1",
@@ -19,18 +22,18 @@ const dataSource = [
 const columns = [
   {
     title: "FullName",
-    dataIndex: "name",
-    key: "fullname",
+    dataIndex: "fullName",
+    key: "fullName",
   },
   {
     title: "CNIC Front",
-    dataIndex: "Cnic",
-    key: "cnicfront",
+    dataIndex: "cnicFront",
+    key: "cnicFront",
   },
   {
     title: "CNIC Back",
-    dataIndex: "CnicBack",
-    key: "cnicback",
+    dataIndex: "cnicBack",
+    key: "cnicBack",
   },
   {
     title: "Email",
@@ -39,24 +42,34 @@ const columns = [
   },
   {
     title: "PhoneNo",
-    dataIndex: "Phoneno",
-    key: "phoneno",
+    dataIndex: "phone",
+    key: "phone",
   },
   {
     title: "Status",
-    dataIndex: "status",
-    key: "status",
+    dataIndex: "verified",
+    key: "verified",
   },
 ];
 const Table = () => {
+  let [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get(`${serverEndpoint}users/verified`).then((verifiedUsers) => {
+      console.log("==================verifi========", verifiedUsers);
+      setData(verifiedUsers.data.users);
+    });
+  }, []);
+  console.log("=====data======", data);
   return (
     <>
       <div className={styles.Table}>
-        <Input placeholder="Search" style={{ width: "300px" }} />
-        <Input placeholder="Search" style={{ width: "300px" }} />
-
-      </div>
-      <AntTable dataSource={dataSource} columns={columns} />
+        <Input placeholder="Search" style={{ width: "500px" }} />
+        </div>
+        <div>
+          <InfoCard />
+        </div>
+      
+      <AntTable dataSource={data} columns={columns} />
     </>
   );
 };

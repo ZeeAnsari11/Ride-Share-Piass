@@ -1,13 +1,13 @@
 import {Routes, Route } from 'react-router-dom'
 import Login from "./Pages/Login";
-import Navbar from './components/Header/Navbar';
+import Admin from "./components/Header/Admin"
 function App() {
 
   return (
     <>
     <Routes>
       <Route path='/' element={<Login/>} />
-      <Route path='/Navbar' element={<Navbar/>} />
+      <Route path='/Admin' element={<Admin/>} />
     </Routes>
     </>
   )

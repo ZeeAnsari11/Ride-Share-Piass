@@ -20,7 +20,7 @@ const Login = () => {
       if (res.data.statusCode === 200) {
         AntMessage.success("Login Success");
         localStorageManager.setUser(res.data.data);
-        navigate("/Navbar");
+        navigate("/Admin");
         return;
       }
     })
