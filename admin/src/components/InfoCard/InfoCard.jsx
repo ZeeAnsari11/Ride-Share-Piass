@@ -10,25 +10,25 @@ const InfoCard = () => {
             <Card
               title="All Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "blue",color:"white" }}
+              style={{ width: "300px", backgroundColor: "whitesmoke" }}
             >
               <Statistic value={1111} />
             </Card>
           </Col>
           <Col span={8}>
             <Card
-              title="All Users"
+              title="Verified Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "blue"}}
+              style={{ width: "300px", backgroundColor: "whitesmoke"}}
             >
               <Statistic value={1111} />
             </Card>
           </Col>
           <Col span={8}>
             <Card
-              title="All Users"
+              title="Non Verfied Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "blue" ,color:"white"}}
+              style={{ width: "300px", backgroundColor: "whitesmoke"}}
             >
               <Statistic value={1111} />
             </Card>

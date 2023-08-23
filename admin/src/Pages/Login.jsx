@@ -8,25 +8,31 @@ import {
   Input,
   Typography,
 } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from '../../redux/slices/userSlice';
 import { serverEndpoint } from '../../utils/serverEndpoint';
 import {useNavigate} from "react-router-dom"
 import Styles from "./Login.module.css";
 import localStorageManager from "../../utils/localStorageManager";
 const Login = () => {
   const navigate = useNavigate()
-  const handleSubmit = async (payload) => {
-    await axios.post(`${serverEndpoint}admin/login`, payload)
-    .then(res=>{
-      if (res.data.statusCode === 200) {
-        AntMessage.success("Login Success");
-        localStorageManager.setUser(res.data.data);
-        navigate("/Admin");
-        return;
-      }
-    })
-    .catch(err=>{
-      AntMessage.error(err?.response?.data?.msg || "Login Error");
-    });
+  const dispatch = useDispatch();
+  const { loading } = useSelector(state => state.user)
+  const handleSubmit = async (data) => {
+    console.log(data);
+    let promise = dispatch(login(data));
+    promise?.unwrap()
+        .then(data => {
+            if (data.statusCode === 200) {
+                AntMessage.success("Login Success")
+                localStorageManager.setUser(data.data)
+                navigate("/")
+
+                return;
+            }
+            AntMessage.error(data.msg || "Login Error")
+
+        })
   };
   return (
     <>

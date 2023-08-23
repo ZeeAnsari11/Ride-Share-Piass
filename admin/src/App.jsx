@@ -1,16 +1,18 @@
-import {Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
-import Admin from "./components/Header/Admin"
+import AppLayout from "./layout/app-layout";
+import Users from "./Pages/users/Users";
 function App() {
-
   return (
     <>
-    <Routes>
-      <Route path='/' element={<Login/>} />
-      <Route path='/Admin' element={<Admin/>} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route path="/:status" element={<Users />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

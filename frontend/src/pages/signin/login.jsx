@@ -10,9 +10,8 @@ import {
 } from 'antd'
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
-
-import localStorageManager from '../../utils/localStorageManager';
 import { login } from '../../redux/slices/userSlice';
+import localStorageManager from '../../utils/localStorageManager';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({displayImage=true}) => {
