@@ -5,30 +5,39 @@ const InfoCard = () => {
   return (
     <>
       <div className={styles.InforCardConatiner}>
-        <Row gutter={16}>
-          <Col span={8}>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} sm={12} md={8} lg={6}>
             <Card
               title="All Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "whitesmoke" }}
+              style={{ width: "100%", backgroundColor: "whitesmoke" }}
             >
               <Statistic value={1111} />
             </Card>
           </Col>
-          <Col span={8}>
+          <Col xs={24} sm={12} md={8} lg={6}>
             <Card
               title="Verified Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "whitesmoke"}}
+              style={{ width: "100%", backgroundColor: "whitesmoke"}}
             >
               <Statistic value={1111} />
             </Card>
           </Col>
-          <Col span={8}>
+          <Col xs={24} sm={12} md={8} lg={6}>
             <Card
               title="Non Verfied Users"
               bordered={false}
-              style={{ width: "300px", backgroundColor: "whitesmoke"}}
+              style={{ width: "100%", backgroundColor: "whitesmoke"}}
+            >
+              <Statistic value={1111} />
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={6}>
+            <Card
+              title="Pending Requests"
+              bordered={false}
+              style={{ width: "100%", backgroundColor: "whitesmoke"}}
             >
               <Statistic value={1111} />
             </Card>

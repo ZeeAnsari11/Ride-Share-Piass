@@ -2,17 +2,17 @@ const Routes= {
     "1": {
         key: "1",
         name: "All Users",
-        path: "/allusers",
+        path: "/?type=all",
     },
     "2": {  
         key: "2",
         name: "VerifiedUser ",
-        path: "/VerifiedUser",
+        path: "/?type=verified",
     },
     "3": {  
         key: "3",
         name: "NonVerifiedUser ",
-        path: "/NonVerifiedUser",
+        path: "/?type=non-verified",
     },
  
 };

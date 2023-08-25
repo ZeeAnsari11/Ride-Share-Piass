@@ -9,11 +9,11 @@ import {
   Typography,
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from '../../redux/slices/userSlice';
-import { serverEndpoint } from '../../utils/serverEndpoint';
+import { login } from '../redux/slices/userSlice';
+import { serverEndpoint } from "../utils/serverEndpoint"
 import {useNavigate} from "react-router-dom"
 import Styles from "./Login.module.css";
-import localStorageManager from "../../utils/localStorageManager";
+import localStorageManager from "../utils/localStorageManager";
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();

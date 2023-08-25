@@ -47,24 +47,3 @@ exports.submitProfileRequest = async (req, res) => {
 
 
 }
-
-
-exports.getAllVerifiedUsers = async (req, res) => {
-    userModel.find({isVerified : true})
-    .then((users)=>{
-        res.json({ statusCode: 200, users : users });
-    })
-    .catch((err)=>{
-        res.status(STATUS_CODE.NOT_FOUND).json({ msg: "Not found", statusCode: STATUS_CODE.NOT_FOUND })
-    })
-}
-
-exports.getAllNonVerifiedUsers = async (req, res) => {
-    userModel.find({isVerified : false})
-    .then((users)=>{
-        res.json({ statusCode: 200, users : users });
-    })
-    .catch((err)=>{
-        res.status(STATUS_CODE.NOT_FOUND).json({ msg: "Not found", statusCode: STATUS_CODE.NOT_FOUND })
-    })
-}

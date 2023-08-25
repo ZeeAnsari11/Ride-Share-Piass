@@ -5,10 +5,6 @@ const auth = require("../../middlewares/auth/auth");
 const catchAsync = require("../../utils/CatchAsync");
 const multer = require("../../utils/multer");
 
-router.get("/verified", catchAsync(user.getAllVerifiedUsers));
-router.get("/non-verified", catchAsync(user.getAllNonVerifiedUsers));
-
-
 router.use(auth.authenticate);
 router.get("/:id", catchAsync(user.getById));
 

@@ -49,3 +49,15 @@ exports.login = async (req, res) => {
     .status(STATUS_CODE.NOT_FOUND)
     .json({ msg: "Admin not found", statusCode: STATUS_CODE.NOT_FOUND });
 };
+
+
+exports.getUsers = async (req, res) => {
+
+  await userModel.find({ isVerified: {$not: {$eq: true}}, role: roles.USER })
+    .then((users) => {
+      res.json({ statusCode: 200, users: users });
+    })
+    .catch((err) => {
+      res.status(STATUS_CODE.NOT_FOUND).json({ msg: "Not found", statusCode: STATUS_CODE.NOT_FOUND })
+    })
+}

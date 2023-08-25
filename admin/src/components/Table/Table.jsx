@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Table as AntTable, Input } from "antd";
+import { Table as AntTable, Avatar, Image, Input } from "antd";
 import styles from "./Table.module.css";
-import { serverEndpoint } from "../../../utils/serverEndpoint";
-import axios from "axios";
-import InfoCard from "../InfoCard/InfoCard";
+import { assetsEndpoint } from "../../utils/serverEndpoint";
 const dataSource = [
   {
     key: "1",
@@ -26,14 +24,28 @@ const columns = [
     key: "fullName",
   },
   {
+    title: "Image",
+    dataIndex: "cnicFront",
+    key: "cnicFront",
+    render: (_, item) => {
+      return <Image src={`${assetsEndpoint}public/images/${item.image}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}}/>
+    }
+  },
+  {
     title: "CNIC Front",
     dataIndex: "cnicFront",
     key: "cnicFront",
+    render: (_, item) => {
+      return <Image src={`${assetsEndpoint}public/images/${item.cnicFront}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}}/>
+    }
   },
   {
     title: "CNIC Back",
     dataIndex: "cnicBack",
     key: "cnicBack",
+    render: (_, item) => {
+      return <Image src={`${assetsEndpoint}public/images/${item.cnicBack}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}} />
+    }
   },
   {
     title: "Email",
@@ -45,30 +57,10 @@ const columns = [
     dataIndex: "phone",
     key: "phone",
   },
-  {
-    title: "Status",
-    dataIndex: "verified",
-    key: "verified",
-  },
 ];
-const Table = () => {
-  let [data, setData] = useState([]);
-  useEffect(() => {
-    axios.get(`${serverEndpoint}users/verified`).then((verifiedUsers) => {
-      console.log("==================verifi========", verifiedUsers);
-      setData(verifiedUsers.data.users);
-    });
-  }, []);
-  console.log("=====data======", data);
+const Table = ({ data = [] }) => {
   return (
     <>
-      <div className={styles.Table}>
-        <Input placeholder="Search" style={{ width: "500px" }} />
-        </div>
-        <div>
-          <InfoCard />
-        </div>
-      
       <AntTable dataSource={data} columns={columns} />
     </>
   );
