@@ -8,6 +8,12 @@
 .form-card{
     width: 60%;
 }
+.form-card p{
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: green;
+}
 @media screen and (max-width: 500px) {
     .form-card{
         width: 100%;

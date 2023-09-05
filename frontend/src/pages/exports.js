@@ -12,6 +12,7 @@ import ForgotPassword from "./forgot/ForgotPassoword";
 import NewPassword from "./new-password/NewPassword";
 import ProfileRequest from "./profile-request/ProfileRequest";
 import RequestStatus from "./profile-request/RequestStatus";
+import RideDetail from "./Ride_details/RideDetail";
 const Pages={
     RequestStatus,
     ProfileRequest,
@@ -27,6 +28,7 @@ const Pages={
     Chat,
     SearchRides,
     Rides,
+    RideDetail
     
 }
 export default Pages;

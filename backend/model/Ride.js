@@ -9,8 +9,8 @@ const ridepostSchema = new mongoose.Schema({
     },
     required: true,
   },
-  user : {
-    type: Schema.Types.ObjectId, 
+  user: {
+    type: Schema.Types.ObjectId,
     ref: 'user',
     required: true,
   },
@@ -19,12 +19,14 @@ const ridepostSchema = new mongoose.Schema({
   ridePicture: { type: String, required: true },
   startLocation: { type: String, required: true },
   endLocation: { type: String, required: true },
+  noofPassenger: { type: Number, required: true },
+  passengers: { type: [mongoose.Schema.Types.ObjectId] },
   date: { type: Date, required: true },
   rideRoutes: {
     type: Array,
     required: true,
   },
-  createdAt :{
+  createdAt: {
     type: Date,
     defaultValue: Date.now()
   }

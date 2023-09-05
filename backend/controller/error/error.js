@@ -45,7 +45,7 @@ const sendErrorPro = (err, req, res) => {
   console.error("Error", err);
   return res.status(STATUS_CODE.SERVER_ERROR).json({
     status: STATUS.ERROR,
-    msg: ERRORS.PROGRAMMING.SOME_ERROR,
+    msg: STATUS_CODE.SERVER_ERROR,
   });
 };
 module.exports = (err, req, res, next) => {

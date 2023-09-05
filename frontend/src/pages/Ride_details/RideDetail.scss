@@ -1,0 +1,26 @@
+
+.main_container {
+  padding: 50px;
+}
+
+.userName {
+  font-size: 15px;
+  margin-left: 35px;
+  font-weight: 200;
+  color: rgb(70, 70, 70);
+}
+
+.data-item {
+  margin-block: 20px;
+}
+
+.data-item p {
+  font-size: 15px;
+}
+
+.flex {
+  display: flex;
+  gap: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}

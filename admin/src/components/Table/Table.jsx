@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Table as AntTable, Avatar, Image, Input } from "antd";
-import styles from "./Table.module.css";
+import { Table as AntTable, Image, } from "antd";
 import { assetsEndpoint } from "../../utils/serverEndpoint";
+import "./Table.css";
 const dataSource = [
   {
     key: "1",
@@ -28,7 +28,7 @@ const columns = [
     dataIndex: "cnicFront",
     key: "cnicFront",
     render: (_, item) => {
-      return <Image src={`${assetsEndpoint}public/images/${item.image}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}}/>
+      return <Image src={`${assetsEndpoint}public/images/${item.image}`} height={80} width={80} style={{ objectFit: "contain", borderRadius: "50%", backgroundColor: "black" }} />
     }
   },
   {
@@ -36,7 +36,7 @@ const columns = [
     dataIndex: "cnicFront",
     key: "cnicFront",
     render: (_, item) => {
-      return <Image src={`${assetsEndpoint}public/images/${item.cnicFront}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}}/>
+      return <Image src={`${assetsEndpoint}public/images/${item.cnicFront}`} height={80} width={80} style={{ objectFit: "contain", borderRadius: "50%", backgroundColor: "black" }} />
     }
   },
   {
@@ -44,7 +44,7 @@ const columns = [
     dataIndex: "cnicBack",
     key: "cnicBack",
     render: (_, item) => {
-      return <Image src={`${assetsEndpoint}public/images/${item.cnicBack}`} height={80} width={80} style={{objectFit: "contain", borderRadius: "50%", backgroundColor: "black"}} />
+      return <Image src={`${assetsEndpoint}public/images/${item.cnicBack}`} height={80} width={80} style={{ objectFit: "contain", borderRadius: "50%", backgroundColor: "black" }} />
     }
   },
   {
@@ -57,11 +57,20 @@ const columns = [
     dataIndex: "phone",
     key: "phone",
   },
+  {
+    title: "Status",
+    dataIndex: "requestStatus",
+    key: "status",
+    render: (_, item)=> <span className={item.requestStatus === "rejected"? "reject-status": item.requestStatus === "accepted"? "accept-status": "pending-status"} > {item.requestStatus} </span>
+  },
 ];
-const Table = ({ data = [] }) => {
+
+const Table = ({ data = [], ...props }) => {
+  const [selectionType, setSelectionType] = useState('checkbox');
   return (
     <>
-      <AntTable dataSource={data} columns={columns} />
+    
+      <AntTable dataSource={data} columns={columns} {...props} />
     </>
   );
 };

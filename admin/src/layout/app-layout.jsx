@@ -1,20 +1,17 @@
 import React from "react";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu, theme, Image } from "antd";
-const { Header, Content, Sider } = Layout;
-import Routes from "../components/Constants/index";
+import { Layout, Menu, theme, Image, Popover, } from "antd";
+const { Header, Sider, Content } = Layout;
+import Routes from "../Constants/index";
 import Logo from "../assets/logo1.png";
 import Styles from "./Admin.module.css";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { Navigate, Outlet, useNavigate, Link } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { Avatar } from "antd";
+import styles from "./Admin.module.css"
 const Admin = () => {
   const navigate = useNavigate();
-  const {user} = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -29,9 +26,22 @@ const Admin = () => {
     console.log(item);
   };
 
-  if(!user){
+  if (!user) {
     return <Navigate to="/login" />
   }
+  const handleLogout = ()=>{
+    localStorage.clear();
+    dispatch(userSignOut({}));
+    navigate("/login");
+  }
+  const AvatarContent = (
+    <div className={styles.Avatar_content}>
+      <ul>
+        <li> <Link to="/?type=all">Home</Link> </li>
+        <li> <Link to="#" onClick={handleLogout} >Log out </Link> </li>
+      </ul>
+    </div>
+  )
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
@@ -67,8 +77,18 @@ const Admin = () => {
           style={{
             padding: 0,
             background: colorBgContainer,
+            display: "flex",
+            justifyContent: "flex-end",
+            paddingInline: "20px"
           }}
-        />
+        >
+          <Popover placement="bottomRight" content={AvatarContent} className={styles.Login_avatar} overlayStyle={{ width: "220px", padding: "0px" }}>
+            <Avatar size={50}>
+              {user.fullName?.[0]}
+            </Avatar>
+          </Popover>
+
+        </Header>
         <Content
           style={{
             margin: "24px 16px 0",

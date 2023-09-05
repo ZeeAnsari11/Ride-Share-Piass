@@ -103,9 +103,6 @@ function Profile() {
     });
 
   }
-
-
-
   const { token } = theme.useToken()
   return (
     <section className='profile-section' style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>

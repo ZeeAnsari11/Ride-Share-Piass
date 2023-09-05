@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <ConfigProvider theme={{ algorithm: theme.compactAlgorithm }}>
+        <ConfigProvider theme={{ algorithm: theme.compactAlgorithm, token: {colorPrimary: "green"} }}>
           <App />
         </ConfigProvider>
       </Provider>

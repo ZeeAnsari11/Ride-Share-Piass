@@ -42,14 +42,19 @@ const PostRide = () => {
         formData.append(el, data[el]);
       }
     })
-    dispatch(postRide(formData));
-    navigate("/")
+    const postPromise = dispatch(postRide(formData));
+    postPromise?.unwrap()
+    .then(res=>{
+      if(res?.statusCode === 201){
+        navigate("/");
+      }
+    })
   }
   return (
     <>
       <div className='parent1'>
         <Card className='form-card'>
-          <Typography.Title style={{ color: '#1677ff' }}>Post Ride</Typography.Title>
+          <p >Post your Ride</p>
           <Form name="signup" layout='vertical' onFinish={postData}>
             <Form.Item
               label="Ride Type"
@@ -160,6 +165,18 @@ const PostRide = () => {
               <Input size="large" />
             </Form.Item>
             <Form.Item
+              name="noofPassenger"
+              label="No of Passenger"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please Input Your Number of passenger!',
+                },
+              ]}
+            >
+              <Input type="number" defaultValue={"0"} size="large" />
+            </Form.Item>
+            <Form.Item
               label="Ride Routes"
               name="rideRoutes"
             >
@@ -170,7 +187,7 @@ const PostRide = () => {
               />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" shape="round" htmlType="submit" style={{ width: "100%" }}>Post Ride</Button>
+              <Button type="primary"  htmlType="submit" style={{backgroundColor:"green" }} size="large">Post Ride</Button>
             </Form.Item>
           </Form>
         </Card>

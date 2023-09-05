@@ -9,7 +9,7 @@ const Router = () => {
     const location = useLocation();
     const { user } = useSelector(state => state.user);
 
-    if (user && user.id && !user?.verified) {
+    if (user && user.id && !user?.isVerified) {
         return (
             <>
                 <Navbar />
@@ -39,6 +39,7 @@ const Router = () => {
                 <Route path='/myrides' element={<Pages.Rides />} />
                 <Route path='/forgot-password' element={<Pages.ForgotPassword />} />
                 <Route path='/new-password' element={<Pages.NewPassword />} />
+                <Route path='/RideDetail' element={<Pages.RideDetail />} />
                 <Route path='*' element={< Pages.Error />} />
             </Routes>
             {

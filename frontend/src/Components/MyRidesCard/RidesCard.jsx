@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from "./Rides.module.css"
 import { Col, Row, Typography, Image, Card } from 'antd';
-import image from "../../assets/Images/Home/1bannerArs.jpg"
+import image from "../../assets/Images/Home/free.png"
 import {Link } from "react-router-dom"
 const RidesCard = () => {
   return (
     <>
-    <Typography.Title className={styles.Header}>
+    <p className={styles.Header}>
         My Rides
-      </Typography.Title>
+      </p>
       <div style={{margin:"20px"}}>
       <Row  gutter={[18, 18]} >
           <Col span={6} lg={6} md={8} sm={12} xs={24}>

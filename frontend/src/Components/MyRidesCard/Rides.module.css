@@ -1,6 +1,10 @@
 .Header{
     text-align: center;
     margin-top: 40px;
+    font-size: 45px;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 .Card_style{

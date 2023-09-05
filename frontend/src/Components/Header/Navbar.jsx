@@ -1,8 +1,9 @@
-import { Avatar, Button, Layout, Menu, Popover, theme } from "antd";
+import { Avatar, Button, Image, Layout, Menu, Popover, theme } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React from 'react'
 import Routes from '../../Constants';
+import Logo from "../../assets/Images/Logo.png"
 import styles from "./Header.module.css"
 import { userSignOut } from '../../redux/slices/userSlice';
 const Navbar = () => {
@@ -47,9 +48,11 @@ const Navbar = () => {
   )
   return (
     <>
-      <Layout style={{ backgroundColor: colorBgContainer,height:"90px" }}  >
-        <Header className="flex h-full" style={{ backgroundColor: colorBgContainer }}>
-          <div className="flex justify-center items-center font-bold text-2xl">RideShare</div>
+      <Layout  >
+        <Header className={styles.Header}>
+          <div className={styles.logo}>
+            <Image src={Logo} preview={false} width={"100px"}/>
+          </div>
           <Menu
             onClick={handleMenuClick}
             className={styles.menu}
@@ -68,17 +71,16 @@ const Navbar = () => {
                   </button>
                 </div> :
                 <>
-                  <Popover placement="bottomRight" content={Content} className={styles.Login_avatar} overlayStyle={{ width: "220px", padding: "0px" }}>
-                    <Avatar size={50}>
-                      {user.fullName?.[0]}
-                    </Avatar>
-                  </Popover>
+                    <Popover placement="bottomRight" content={Content} className={styles.Login_avatar} overlayStyle={{ width: "220px", padding: "0px" }}>
+                      <Avatar size={50}>
+                        {user.fullName?.[0]}
+                      </Avatar>
+                    </Popover>
                 </>
             }
           </div>
         </Header>
       </Layout>
-      <div className={styles.seperate}></div>
     </>
   )
 }

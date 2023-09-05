@@ -1,20 +1,88 @@
 .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 25px;
-}
-
-.bannerimg {
+  padding-top: 50px;
+  margin-bottom: 20px;
   position: relative;
-  border-radius: 30px;
+  overflow: hidden;
+  height: calc(100vh - 80px);
+
 }
-.butonRide{
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+.bannerimgContainer{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
-.Card{
+.bannerimg {
+  height: 70vh !important;
+  object-fit: cover;
+  object-position: top;
+}
+.HomeCar{
+  height: 250px !important;
+}
+.HomeCarContainer{
+  position: absolute;
+  bottom: 90px;
+  left: 250px;
+  z-index: 10;
+}
+.grassimageContainer{
+  position: absolute;
+  bottom: -10px;
+  right: -80px;
+}
+.grassimageContainerLeft{
+  position: absolute;
+  bottom: -10px;
+  left: -80px;
+}
+.ShapeImage{
+  position: absolute;
+  bottom: 0px;
+  left: 250px;
+}
+.CloudeImage{
+  position: absolute;
+  top: 0;
+  left: 40px;
+}
+.CloudeImage2{
+  position: absolute;
+  top: 70px;
+  right: 60px;
+}
+.TextonImage{
+  position: absolute;
+  top: 200px;
+  right: 350px;
+}
+.TextonImage p {
+  font-size: 35px;
+  width: 400px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: lighter;
+  color: rgb(34, 33, 33);
+}
+.TextonImage p span{
+  font-size: 50px;
+  color: green;
+  font-weight: bold;
+  font-family:'Courier New', Courier, monospace;
+}
+.ButtonImage{
+  position: absolute;
+  top: 330px;
+  right: 400px;
+}
+.title{
+  text-align: center;
+  font-size: 45px;
+  color: green;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+.Card {
   display: flex;
   justify-content: center;
+  margin: 24px;
 }

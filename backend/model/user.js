@@ -50,10 +50,6 @@ const userSchema = new mongoose.Schema({
         required: [true, "Password is required"],
         select: false,
     },
-    verified: {
-        type: Boolean,
-        default: false,
-    },
     requestStatus: {
         type: String,
         enum: {

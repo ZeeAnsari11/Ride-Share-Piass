@@ -7,6 +7,7 @@ const catchAsync = require("../../utils/CatchAsync");
 router.post("/login", admin.login);
 router.use(auth.authenticate);
 router.get("/users", catchAsync(admin.getUsers));
+router.put("/users", catchAsync(admin.updateUser));
 
 
 module.exports = router;

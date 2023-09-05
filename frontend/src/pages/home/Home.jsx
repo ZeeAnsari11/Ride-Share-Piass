@@ -1,12 +1,15 @@
-import { Button, Image, Typography } from "antd"
+import { Button, Col, Image, Row, Typography } from "antd"
 import { useDispatch, useSelector } from 'react-redux'
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import Card from "../../Components/cards/cards"
-import Login from "../signin/login"
-import Register from "../signup/Register"
-import banner2 from "../../assets/Images/Home/banner2.png"
+import backgroundImage from "../../assets/Images/backgroundImage.png"
+import homeCar from "../../assets/Images/HomeModule.png"
+import grass from "../../assets/Images/grass.png"
+import Shape from "../../assets/Images/Shape.png"
+import Cloud from "../../assets/Images/Cloude.png"
 import { getRide } from "../../redux/slices/RideSlice"
+import Cloude2 from "../../assets/Images/Cloude2.png"
 import styles from "./Home.module.css"
 
 const Home = () => {
@@ -14,40 +17,64 @@ const Home = () => {
   const dispatch = new useDispatch()
   useEffect(() => {
     dispatch(getRide())
-  },[])
+  }, [])
 
   let data = useSelector(state => state.ride.data)
   const [inputStr, setInputStr] = useState('');
   return (
     <>
       <div className={styles.main}>
-        <div className={`${styles.bannerimg} space-y-4`}>
-          <Image src={banner2} width={"100%"} preview={false} className={styles.bannerimg} />
-          <button className="absolute left-14 top-[25rem] text-white hover:text-blue-700 bg-transparent hover:bg-white font-semibold py-2 px-4 border border-white-500 hover:border-transparent rounded" onClick={() => navigate("/PostRide")}>
-            Book Your Ride
-          </button>
+        <div className={styles.bannerimgContainer}>
+          <Image src={backgroundImage} width={"100%"} preview={false} className={styles.bannerimg} />
+        </div>
+        <div className={styles.HomeCarContainer}>
+          <Image src={homeCar} preview={false} className={styles.HomeCar} width="250px" />
+        </div>
+        <div className={styles.grassimageContainer}>
+          <Image src={grass} preview={false} width="250px" />
+        </div>
+        <div className={styles.grassimageContainerLeft}>
+          <Image src={grass} preview={false} width="250px" />
+        </div>
+        <div className={styles.ShapeImage}>
+          <Image src={Shape} preview={false} width="250px" />
+        </div>
+        <div className={styles.CloudeImage}>
+          <Image src={Cloud} preview={false} width="250px" />
+        </div>
+        <div className={styles.CloudeImage2}>
+          <Image src={Cloude2} preview={false} width="250px" />
+        </div>
+        <div className={styles.TextonImage}>
+          <p>Get Your <span>Ride</span> From most Trusting Platfarm </p>
+        </div>
+        <div className={styles.ButtonImage}>
+          <Button style={{backgroundColor:"green",color:"white",width:"150px",fontSize:"14px"}} size="large">Book Ride</Button>
         </div>
       </div>
-      <Typography.Title style={{textAlign: "center"}}> Top Rides </Typography.Title>
+      <p className={styles.title}> Top Rides </p>
       <div className={styles.Card}>
-        {
-          data?.slice(0, 10).map((ride) => {
-            if (ride.startLocation.toLowerCase().includes(inputStr.toLowerCase()) || ride.endLocation.toLowerCase().includes(inputStr.toLowerCase()) )
-            // Missing return statement in the map callback
-            return (
-              // eslint-disable-next-line react/jsx-key
-              <Card
-                startLocation={ride.startLocation} // Assuming you have defined these variables somewhere
-                endLocation={ride.endLocation}
-                rideRoutes={ride.rideRoutes}
-                rideType={ride.rideType}
-                rideNumber={ride.rideNumber}
-                ridePicture={ride.ridePicture}
-                user={ride.user}
-              />
-            );
-          })
-        }
+        <Row gutter={[24, 16]}>
+          {
+            data?.slice(0, 10).map((ride, index) => {
+              if (ride.startLocation.toLowerCase().includes(inputStr.toLowerCase()) || ride.endLocation.toLowerCase().includes(inputStr.toLowerCase()))
+                // Missing return statement in the map callback
+                return (
+                  <Col xs={24} sm={24} md={12} lg={6} key={index}>
+                    <Card
+                      startLocation={ride.startLocation} // Assuming you have defined these variables somewhere
+                      endLocation={ride.endLocation}
+                      rideRoutes={ride.rideRoutes}
+                      rideType={ride.rideType}
+                      rideNumber={ride.rideNumber}
+                      ridePicture={ride.ridePicture}
+                      user={ride.user}
+                    />
+                  </Col>
+                );
+            })
+          }
+        </Row>
       </div>
       <br />
       <br />

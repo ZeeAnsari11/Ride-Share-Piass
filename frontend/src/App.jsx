@@ -4,8 +4,9 @@ import Router from './Router/Router'
 import axios from 'axios';
 import localStorageManager from './utils/localStorageManager';
 import { useDispatch } from 'react-redux';
-import { userSignIn } from './redux/slices/userSlice';
+import { userSignIn, userSignOut } from './redux/slices/userSlice';
 import Sockets from "./sockets/index"
+import auth from './services/auth';
 function App() {
 
   const dispatch = useDispatch();
@@ -26,11 +27,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let user = localStorageManager.getUser();
-    if (user) {
-      dispatch(userSignIn(user));
-    }
+    verifyUser();
   }, []);
+
+  const verifyUser = async () => {
+    let doc = await auth.verify()
+    if (doc && doc.statusCode === 200) {
+      dispatch(userSignIn(doc.data));
+    } else {
+      navigate("/");
+      localStorage.clear();
+      dispatch(userSignOut({}))
+    }
+  }
 
 
   return (

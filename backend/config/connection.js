@@ -12,10 +12,7 @@ require("dotenv").config();
 //   .catch((err) => console.log("Database connection error", err));
 
   mongoose.set('strictQuery', false);
-  mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true 
-    })
+  mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         console.log("Connection Established with database.");
     })
