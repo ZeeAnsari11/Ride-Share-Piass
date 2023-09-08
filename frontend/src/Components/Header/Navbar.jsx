@@ -63,12 +63,12 @@ const Navbar = () => {
             {
               !user ?
                 <div className="flex h-full justify-between items-center">
-                  <button className="bg-transparent py-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 border border-blue-500 hover:border-transparent rounded-full" onClick={() => navigate("./signin")}>
+                  <Button type="primary" size="large" style={{backgroundColor:"green"}} onClick={() => navigate("./signin")}>
                     Login
-                  </button>
-                  <button className="bg-transparent py-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-4 border border-blue-500 hover:border-transparent rounded-full" onClick={() => navigate("./signup")}>
+                  </Button>
+                  <Button style={{backgroundColor:"black"}} type="primary" size="large" onClick={() => navigate("./signup")}>
                     Sign up
-                  </button>
+                  </Button>
                 </div> :
                 <>
                     <Popover placement="bottomRight" content={Content} className={styles.Login_avatar} overlayStyle={{ width: "220px", padding: "0px" }}>

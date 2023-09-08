@@ -177,6 +177,18 @@ const PostRide = () => {
               <Input type="number" defaultValue={"0"} size="large" />
             </Form.Item>
             <Form.Item
+              name="price"
+              label="price"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please Input Your Ride Price!',
+                },
+              ]}
+            >
+              <Input type="number" defaultValue={"0"} size="large" />
+            </Form.Item>
+            <Form.Item
               label="Ride Routes"
               name="rideRoutes"
             >

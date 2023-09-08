@@ -1,5 +1,5 @@
-.profile-section{
-    .ant-upload-select{
+.profile-section {
+    .ant-upload-select {
         width: 90% !important;
         margin: 0px !important;
     }
@@ -18,7 +18,8 @@
     margin-bottom: 10px;
     user-select: none;
 }
-.image-container:hover{
+
+.image-container:hover {
     background-color: darkgray;
     color: white;
 }
@@ -28,4 +29,18 @@
     width: 100%;
     object-fit: contain;
     background-color: black;
+}
+
+.request_conatiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+}
+.text-container {
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
 }

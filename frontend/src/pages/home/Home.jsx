@@ -49,30 +49,20 @@ const Home = () => {
           <p>Get Your <span>Ride</span> From most Trusting Platfarm </p>
         </div>
         <div className={styles.ButtonImage}>
-          <Button style={{backgroundColor:"green",color:"white",width:"150px",fontSize:"14px"}} size="large">Book Ride</Button>
+          <Button style={{ backgroundColor: "green", color: "white", width: "150px", fontSize: "14px" }} size="large" onClick={()=>navigate("search-rides")}>Book Ride</Button>
         </div>
       </div>
       <p className={styles.title}> Top Rides </p>
       <div className={styles.Card}>
         <Row gutter={[24, 16]}>
           {
-            data?.slice(0, 10).map((ride, index) => {
-              if (ride.startLocation.toLowerCase().includes(inputStr.toLowerCase()) || ride.endLocation.toLowerCase().includes(inputStr.toLowerCase()))
-                // Missing return statement in the map callback
-                return (
-                  <Col xs={24} sm={24} md={12} lg={6} key={index}>
-                    <Card
-                      startLocation={ride.startLocation} // Assuming you have defined these variables somewhere
-                      endLocation={ride.endLocation}
-                      rideRoutes={ride.rideRoutes}
-                      rideType={ride.rideType}
-                      rideNumber={ride.rideNumber}
-                      ridePicture={ride.ridePicture}
-                      user={ride.user}
-                    />
-                  </Col>
-                );
-            })
+            data?.slice(0, 10).map((ride, index) => (
+              <Col xs={24} sm={24} md={12} lg={6} xl={6} key={index}>
+                <Card
+                  {...ride}
+                />
+              </Col>
+            ))
           }
         </Row>
       </div>

@@ -93,7 +93,7 @@ function Profile() {
         let res = await ProfileRequestAPI.submitProfileRequest(formData);
         if (res?.statusCode === 200) {
           message.success(res.msg || "Successfully Submitted");
-          let data = {...user, requestStatus: "pending"};
+          let data = { ...user, requestStatus: "pending" };
           localStorageManager.setUser(data);
           dispatch(userSignIn(data))
           return;
@@ -103,6 +103,10 @@ function Profile() {
     });
 
   }
+
+  if (user?.requestStatus === "pending") {
+    return <Navigate to="/request-status" />
+  }
   const { token } = theme.useToken()
   return (
     <section className='profile-section' style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
@@ -111,10 +115,6 @@ function Profile() {
         <Camera getCompressedImage={handleChange} />
       }
 
-      {
-        user?.requestStatus === "pending" &&
-        <Navigate to="/request-status" />
-      }
       <div style={{ boxShadow: token.boxShadowSecondary, width: "60%", padding: "10px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <div className='image-container' onClick={() => setGetPicture({ show: true, type: "profile" })}>

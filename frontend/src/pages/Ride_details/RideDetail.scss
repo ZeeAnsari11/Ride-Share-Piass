@@ -1,6 +1,6 @@
 
 .main_container {
-  padding: 50px;
+  padding: 20px;
 }
 
 .userName {
@@ -11,7 +11,7 @@
 }
 
 .data-item {
-  margin-block: 20px;
+  margin-block: 10px;
 }
 
 .data-item p {
@@ -23,4 +23,9 @@
   gap: 5px;
   font-size: 18px;
   font-weight: bold;
+}
+.booke_passengerContainer{
+  width: 30%;
+  display: flex;
+  
 }

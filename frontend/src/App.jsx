@@ -7,9 +7,11 @@ import { useDispatch } from 'react-redux';
 import { userSignIn, userSignOut } from './redux/slices/userSlice';
 import Sockets from "./sockets/index"
 import auth from './services/auth';
+import { useLocation } from 'react-router-dom';
 function App() {
 
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useLayoutEffect(() => {
     axios.interceptors.request.use(
@@ -25,6 +27,10 @@ function App() {
       }
     )
   }, []);
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   useEffect(() => {
     verifyUser();

@@ -1,12 +1,14 @@
 .parent1{
     display: flex;
-    margin: 20px;
     justify-content: center;
     align-items: center;
+    background-image: url("../../assets/Images/product.png");
     // background-color: whitesmoke;
 }
 .form-card{
-    width: 60%;
+    width: 350px;
+    margin-top: 200px;
+    background-color: transparent;
 }
 .form-card p{
     font-size: 35px;
@@ -14,6 +16,7 @@
     font-weight: bold;
     color: green;
 }
+
 @media screen and (max-width: 500px) {
     .form-card{
         width: 100%;
